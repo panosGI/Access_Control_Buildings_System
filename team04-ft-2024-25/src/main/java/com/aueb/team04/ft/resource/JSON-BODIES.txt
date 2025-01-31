@@ -1,0 +1,117 @@
+POST /registration
+
+    {
+      "username": "newuser",
+      "password": "newpassword",
+      "email": "newuser@example.com"
+    }
+
+POST /access_request
+
+    {
+            "employee": {
+                "id": 1,
+                "username": "newuser",
+                "password": "newpassword",
+                "email": "newuser@example.com",
+                "role": "EMPLOYEE"
+            },
+            "buildingID": 1,
+            "requestedAccessLevel": "2"
+        }
+
+
+GET /access_request
+PUT /access_request/{id}/approve
+PUT /access_request/{id}/reject
+GET /employee
+GET /employee/{id}
+GET /building
+GET /building/{id}
+GET /access_log
+DELETE /employee/{id}
+DELETE /building/{id}
+GET /building/{id}/access_point/{id}
+GET /building/{id}/access_point/{id}/access_log
+DELETE /access_log/{id}
+GET /access_point/{id}/access_log
+GET /access_card/{id}/access_log
+GET /access_point/{id}/prerequisites
+POST /{target_id}/{source_id}
+GET /alert
+GET /alert/severity/{id}
+
+{
+    "admin": {
+        "id": 5555,
+        "username": "admin5555",
+        "email": "admin5555@email",
+        "password": "admin5555"
+      }
+}
+
+POST /building
+{
+    "admin": {
+        "id": 5555,
+        "username": "admin5555",
+        "email": "admin5555@email",
+        "password": "admin5555"
+    },
+    "building": {
+        "name": "Building 1",
+        "belongsTo": "AUEB",
+        "address": {
+            "streetName": "Main Street",
+            "streetNumber": "123",
+            "zipcode": "12345"
+        }
+    }
+}
+
+PUT building/{id}
+{
+    "admin": {
+        "id": 5555,
+        "username": "admin5555",
+        "email": "admin5555@email",
+        "password": "admin5555"
+    },
+        "name": "Building 1-NEW",
+        "belongsTo": "AUEB-NEW",
+        "address": {
+            "streetName": "Main Street-NEW",
+            "streetNumber": "123-NEW",
+            "zipcode": "12345-NEW"
+        }
+}
+
+
+POST /building/{id}/access_point
+{
+    "admin": {
+        "id": 5555,
+        "username": "admin5555",
+        "email": "admin5555@email",
+        "password": "admin5555"
+      },
+
+  "accessPoint":{
+  "location": "Test IN_BETWEEN",
+  "type": "IN_BETWEEN",
+  "accessLevelRequired": "1",
+  "accessLogs": [],
+  "prerequisites": []
+    }
+}
+
+
+GET localhost:8080/building/{id}/access_point/{id}
+
+EMPLOYEE
+{
+    "employee": {
+        "password": "employee1111",
+        "username": "employee1111"
+    }
+}
